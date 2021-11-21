@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-size: 16px;
+    font-family: fantasy;
+    --bg-color: #202225;
+    --bg-color-rgb: 32, 34, 37;
+    --game-bg-color: #4f545c;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--bg-color);
+}
+
+@media (min-width: 1340px){
+    :root{
+        --width: 1100px;
+        --height: 880px;
+        --cell-font: 2rem;
+    }
+}
+
+@media (max-width: 1340px){
+    :root{
+        --width: 800px;
+        --height: 600px;
+        --cell-font: 1rem;
+    }
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--game-bg-color);
+    width: var(--width);
+    height: var(--height);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 10px rgba(255,255,255, 0.1);
+}
+
+.hud{
+    display: flex;
+    user-select: none;
+    justify-content: space-evenly;
+    width: var(--width);
+    height: 30px;
+}
+
+#difficulty-selector{
+    display: flex;
+    align-items: center;
+    width: 4%;
+    height: 20px;
+}
+
+
+#flag-counter{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    width: 10%;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: var(--game-bg-color);
+    box-shadow: 0 0 10px 10px rgba(255,255,255, 0.1);
+}
+
+#flag-counter .fa-flag{
+    width: 20px;
+    height: 20px;
+    color: red;
+}
+
+.game-window{
+    display: grid;
+    gap: 1px 1px;
+    width: 93%;
+    height: 90%;
+}
+
+.game-window.easy{
+    --difficulty: 2;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.game-window.hard{
+    --difficulty: 1;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+}
+
+
+.cell{
+    color: rgb(245, 222, 179);
+    user-select: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    font-size: calc(var(--difficulty)*var(--cell-font));
+    transition: transform 100ms ease-in;
+
+}
+
+.cell.revealed{
+    background-color: rgb(245, 222, 179, 0.7);
+    animation: cell-reveal;
+    animation-duration: 220ms;
+}
+
+@keyframes cell-reveal{
+    50%{
+        transform: scale(1.35);
+    }
+}
+
+.cell.bomb{
+   
+}
+
+.cell:hover{
+    transform: scale(.85);
+}
+
+.fa-flag{
+    width: calc(var(--difficulty)*20px);
+    height: calc(var(--difficulty)*20px);;
+    color: red;
+}
+
+.bomb-1{
+    color: blue;
+}
+
+.bomb-2{
+    color: green;
+}
+.bomb-3{
+    color: red;
+}
+.bomb-4{
+    color: purple;
+}
+.bomb-5{
+    color: darkorange;
+}
+.bomb-6{
+    color: magenta;
+}
+.bomb-7{
+    color: maroon;
+}
+.bomb-8{
+    color: black;
+}
