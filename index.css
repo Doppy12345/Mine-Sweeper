@@ -168,3 +168,171 @@ main{
 .bomb-8{
     color: black;
 }
+
+#difficulty-selector{
+    display: flex;
+    width: 200px;
+    gap: .5rem;
+    
+}
+
+#difficulty-selector > p{
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    border-radius: 40%;
+    box-shadow: 0 0 10px 10px rgba(255,255,255, 0.1);
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--game-bg-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "E";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    content: "H";
+    justify-content: center;
+    align-items: center;
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  @keyframes bounce{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+  }
+
+  @keyframes slide-in {
+      0%{transform: translateY(-30%);}
+      100%{transform: translateY(0);}
+  }
+
+  #game-select-window{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.4);
+    z-index: 2;
+    
+
+  }
+
+  #game-select{
+    width: 800px;
+    height: 400px;
+    background-color: var(--game-bg-color);
+    border-radius: 2rem;
+    box-shadow: 0 0 10px 10px rgba(56, 56, 56, 0.75);
+    color: none;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    text-shadow: 10px 10px rgba(255,255,255, 0.1);
+    opacity: 0;
+    transition: all ease 2s;
+  }
+
+
+#game-select-title{
+    font-size: 8rem;
+    
+}
+
+#game-select-subtitle{
+    font-size: 4rem;
+}
+
+.game-select-menu-item:hover{
+    animation: bounce 1s infinite;
+    color: whitesmoke;
+    user-select: none;
+}
+
+#game-select-options{
+    margin-top: 2rem;
+    font-size: 3.3rem;
+    display: flex;
+    gap: 5rem;
+}
+
+#game-select-options > p{
+    cursor: pointer;
+
+}
+
+
+.hidden{
+    display: none !important;
+}
+
+
+#game-select.visible {
+    opacity: 1;
+    color: whitesmoke;
+    animation-name: bounce, slide-in;
+    animation-duration: 5s, 2s;
+    animation-delay: 2s, 0s;
+    animation-timing-function: ease, ease;
+    animation-iteration-count: infinite, 1;
+}

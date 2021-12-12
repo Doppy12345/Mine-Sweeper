@@ -5,6 +5,7 @@ export default class GameBoard{
     colNum = 0
     dimension = []
     bombNum = 0
+    cellsRevealed = 0
 
     constructor(board, [colNum,rowNum], bombNum){
         this.boardData = board
